@@ -18,3 +18,6 @@ http://192.168.33.10:9999/
 
 To have your files easily accessible outside the VM as well, place all your project files within the `/vagrant` directory. This directory is directly mapped to the **same** folder the Vargantfile lies in.
 
+## Optional
+
+To install other software, such as nvm, docker. You can user shell script to install `bash /vagrant/xxxx.sh` 
