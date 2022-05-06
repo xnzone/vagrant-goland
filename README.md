@@ -20,4 +20,4 @@ To have your files easily accessible outside the VM as well, place all your proj
 
 ## Optional
 
-To install other software, such as nvm, docker. You can user shell script to install `bash /vagrant/xxxx.sh` 
+You can user shell script to install other soft such as `bash /vagrant/xxxx.sh` 
