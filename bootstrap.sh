@@ -14,7 +14,14 @@ sudo tar -zxvf go1.16.2.linux-amd64.tar.gz -C /usr/local/
 sudo tee -a /etc/profile > /dev/null << EOT
 export GOROOT=/usr/local/go
 export GOPATH=/home/vagrant/go
-export PATH=\$PATH:\$GOROOT/bin:\GOPATH/bin
+export PATH=\$PATH:\$GOROOT/bin:\$GOPATH/bin
+EOT
+
+# If someone use zsh, set PATH to ~/.zprofile
+tee -a ~/.zprofile > /dev/null << EOT
+export GOROOT=/usr/local/go
+export GOPATH=/home/vagrant/go
+export PATH=\$PATH:\$GOROOT/bin:\$GOPATH/bin
 EOT
 
 echo "Using tsinghua pip mirros"
