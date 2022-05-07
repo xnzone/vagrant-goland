@@ -14,3 +14,6 @@ source ~/.zshrc
 
 echo "go get protoc-gen-go"
 go get -u github.com/golang/protobuf/protoc-gen-go@v1.1.0
+
+echo "go get protoc-gen-gofast"
+go get -u github.com/gogo/protobuf/protoc-gen-gofast@v1.3.2
