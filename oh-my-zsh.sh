@@ -2,12 +2,10 @@
 
 echo "Installing zsh"
 sudo apt update && sudo apt install zsh -y
-chsh -s $(which zsh)
+echo "vagrant" | chsh -s $(which zsh)
 
 echo "Install oh-my-zsh"
-wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
-sed -i 's/robbyrussell/steeef/g' ~/.zshrc
+sh -c "$(curl -fsSL https://gitee.com/mirrors/oh-my-zsh/raw/master/tools/install.sh \
+    | sed 's|^REPO=.*|REPO=${REPO:-mirrors/oh-my-zsh}|g' \
+    | sed 's|^REMOTE=.*|REMOTE=${REMOTE:-https://gitee.com/${REPO}.git}|g')"
 
-echo "Installing zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-sed -i 's/plugins=(/plugins=(zsh-autosuggestions /g' ~/.zshrc

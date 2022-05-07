@@ -9,7 +9,7 @@ sudo apt update
 sudo apt install -y curl ca-certificates build-essential git python3 python3-pip less libxext6 libxrender1 libxtst6 libfreetype6 libxi6
 
 echo "Installing go1.16.2"
-su vagrant -c 'wget https://studygolang.com/dl/golang/go1.16.2.linux-amd64.tar.gz'
+su vagrant -c 'wget https://golang.google.cn/dl/go1.16.2.linux-amd64.tar.gz'
 sudo tar -zxvf go1.16.2.linux-amd64.tar.gz -C /usr/local/
 sudo tee -a /etc/profile > /dev/null << EOT
 export GOROOT=/usr/local/go
