@@ -19,15 +19,16 @@ export PATH=\$PATH:\$GOROOT/bin:\$GOPATH/bin
 EOT
 
 # If someone use zsh, set PATH to ~/.zprofile
-tee -a ~/.zprofile > /dev/null << EOT
+touch $HOME/.zprofile
+tee -a $HOME/.zprofile > /dev/null << EOT
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=\$PATH:\$GOROOT/bin:\$GOPATH/bin
 EOT
 
 echo "Using tsinghua pip mirros"
-mkdir .pip && touch .pip/pip.conf
-tee -a .pip/pip.conf > /dev/null << EOT
+mkdir $HOME/.pip && touch $HOME/.pip/pip.conf
+tee -a $HOME/.pip/pip.conf > /dev/null << EOT
 [global]
 index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 [install]
@@ -52,7 +53,7 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-User=vagrant
+User=$(whoami)
 ExecStart=$HOME/.projector/configs/goland/run.sh
 [Install]
 WantedBy=multi-user.target
