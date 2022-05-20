@@ -5,10 +5,11 @@ Vagrant.configure(2) do |config|
 	
 	config.vm.define "vagrant-goland" do |node|
 		node.vm.box = "ubuntu-bionic"
-		node.vm.box_url = "https://mirrors.tuna.tsinghua.edu.cn/ubuntu-cloud-images/bionic/current/bionic-server-cloudimg-amd64-vagrant.box"
-		node.vm.network "private_network", ip: "192.168.33.10"
-		node.vm.provider "virtualbox" do |v|
-			v.cpus = 2
+		# node.vm.network "private_network", ip: "192.168.159.10"
+		node.vm.network "forwarded_port", guest: 9999, host: 9999
+		# config.vm.synced_folder "../vagrant-share-folder/", "/home/vagrant/share"
+		node.vm.provider "vmware_desktop" do |v|
+			v.cpus = 4
 			v.memory = 8192
 		end
 	end
